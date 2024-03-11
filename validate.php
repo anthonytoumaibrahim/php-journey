@@ -1,18 +1,14 @@
 <?php
-function validateEmail(string $email)
+function validate(string $email, string $password)
 {
-  $regex = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/';
-  if (preg_match($regex, $email)) {
-    return "Email is valid!";
+  $emailValidMessage = "Email is not valid.";
+  $passwordValidMessage = "Your password is not secure. It must contain:\nAt least 8 characters, and at least one special character or number.";
+  if (preg_match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/', $email)) {
+    $emailValidMessage = "Email is valid!";
   }
-  return "Email is not valid.";
-}
+  if (preg_match('/\!|\$|#|@|\^|\&|\%|\d/', $password) && strlen($password) >= 8) {
+    $passwordValidMessage = "Your password is secure!";
+  }
 
-function validatePassword(string $password)
-{
-  $regex = '/\!|\$|#|@|\^|\&|\%|\d/';
-  if (preg_match($regex, $password) && strlen($password) >= 8) {
-    return "Your password is secure!";
-  }
-  return "Your password is not secure. It must contain:\nAt least 8 characters, and at least one special character or number.";
+  return "$emailValidMessage\n$passwordValidMessage";
 }
