@@ -15,4 +15,3 @@ function decimalToBinary(int $number = 0)
 
   return implode('', $remainders);
 }
-echo decimalToBinary(12.66);
