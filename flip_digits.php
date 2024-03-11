@@ -1,5 +1,5 @@
 <?php
-function flipDigits($number = 0)
+function flipDigits(int $number = 0)
 {
   $number = (string) $number;
   $result = "";

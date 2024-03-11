@@ -1,5 +1,5 @@
 <?php
-function extractNumbers($string = "")
+function extractNumbers(string $string = "")
 {
   preg_match_all('/\d+/', $string, $matches);
   sort($matches[0]);

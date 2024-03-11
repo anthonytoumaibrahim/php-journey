@@ -1,5 +1,5 @@
 <?php
-function decimalToBinary($number = 0)
+function decimalToBinary(int $number = 0)
 {
   // https://byjus.com/maths/decimal-to-binary/
   $new = $number;
@@ -15,3 +15,4 @@ function decimalToBinary($number = 0)
 
   return implode('', $remainders);
 }
+echo decimalToBinary(12.66);
